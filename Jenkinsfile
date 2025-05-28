@@ -15,13 +15,13 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh './gradlew build' // Use wrapper if available
+        sh 'gradle build' // Use wrapper if available
       }
     }
 
     stage('Run') {
       steps {
-        sh './gradlew run'
+        sh 'gradle run'
       }
     }
   }
