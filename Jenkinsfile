@@ -1,23 +1,27 @@
-pipeline{
+pipeline {
   agent any
-  tools{
-    gradle "Gradle"
-    jdk "JDK"
+
+  tools {
+    gradle 'Gradle' // Ensure "Gradle" is defined in Jenkins tool config
+    jdk 'JDK'       // Ensure "JDK" is defined in Jenkins tool config
   }
-  stages{
-  stage('checkout'){
-    steps{
-      git "https://github.com/HackStyx/gradle-lab-2.git"
-    }
-  }
-    stage('build'){
-      steps{
-        sh 'gradle build'
+
+  stages {
+    stage('Checkout') {
+      steps {
+        git 'https://github.com/HackStyx/gradle-lab-2.git'
       }
     }
-    stage('run'){
-      steps{
-        sh 'gradle run'
+
+    stage('Build') {
+      steps {
+        sh './gradlew build' // Use wrapper if available
+      }
+    }
+
+    stage('Run') {
+      steps {
+        sh './gradlew run'
       }
     }
   }
