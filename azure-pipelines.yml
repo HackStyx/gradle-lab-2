@@ -1,0 +1,15 @@
+trigger:
+  - master
+
+pool:
+  name: Default
+
+steps:
+  - script: echo My first Azure Pipeline for Gradle project
+    displayName: 'Run a one-line script'
+
+  - script: ./gradlew build
+    displayName: 'Build with Gradle'
+
+  - script: ./gradlew run
+    displayName: 'Run gradle file'
